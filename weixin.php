@@ -75,14 +75,7 @@ class wechatCallbackapiTest
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
                 }	
-				
-		
- 
-$mysql->closeDb();		
-        }else {
-        	
-        	exit;
-        }
+			
         
         
     }
