@@ -110,8 +110,7 @@ function language($value){
  $keyfrom = ""; //申请APIKEY时，填表的网站名称的内容  ；注意： $keyFrom 需要是【连续的英文、数字的组合】
  $apikey = "";  //从有道申请的APIKEY
  $qurl = 'http://fanyi.youdao.com/fanyiapi.do?keyfrom='.$keyfrom.'&key='.$apikey.'&type=data&doctype=json&version=1.1&q='.$value;
- $f = new SaeFetchurl();
- $content = $f->fetch($qurl);
+ $content = file_get_contents($qurl);
  $sina = json_decode($content,true);
  $errorcode = $sina['errorCode'];
  $trans = $sina['translation']['0'];//输出基本释义
@@ -156,8 +155,7 @@ function language($value){
 function maps($location){
  $apikey = "";  //从百度地图申请的APIKEY
  $qurl = ' http://api.map.baidu.com/place/search?&query=英语&location='.$location.'&radius=2000&output=json&key='.$apikey;
- $f = new SaeFetchurl();
- $content = $f->fetch($qurl);		
+ $content = file_get_contents($qurl);		
  $arr = json_decode($content,true);//现在已经将结果转成多维数组了
 		//print_r($arr);
 			
